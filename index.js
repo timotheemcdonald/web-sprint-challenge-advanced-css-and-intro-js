@@ -239,19 +239,36 @@ function getArtistByIndex(array, index) {
 
 /* Task 4: Create a function called get20s() that takes data as an argument and returns an array with names of artists who lived in the 20th century (1900-2000) */
 
-let twentiesArtists = [];
 
-function get20s(array, century){
-  for (let i = 0; i < array.length; i++) {
-    if (array[i].years.split(" ") === century) {
-      twentiesArtists.push(array[i].name);
-    }
+
+// function get20s(array, century){
+//   for (let i = 0; i < array.length; i++) {
+//     if (array[i].years.split(" ") === century) {
+//       twentiesArtists.push(array[i].name);
+//     }
   
+//   return twentiesArtists;
+// }
+// }
+// console.log(get20s(artists,'19'));
+// console.log(twentiesArtists);
+
+function get20s(array) {
+  // let x = '';
+  // x = array.years;
+  let twentiesArtists = [];
+  for (let i = 0; i< array.length; i++) {
+  let testVar = array[i].years.split(" ");
+  console.log(testVar);
+  if (testVar[0].includes('19')) {
+    twentiesArtists.push(array[i].name);
+  } else if (testVar[2].includes('19')) {
+    twentiesArtists.push(array[i].name);
+  }
+}
   return twentiesArtists;
 }
-}
-console.log(get20s(artists,'19'));
-console.log(twentiesArtists);
+console.log(get20s(artists));
 
 // function get20s(century) {
 // artists.years.split(" ");
