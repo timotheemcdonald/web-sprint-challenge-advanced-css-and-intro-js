@@ -205,14 +205,18 @@ const artists = [
 
 /* Task 1: Practice accessing data above by console.log-ing following items:
 
-(1) Name of the first artist (0th index) in the array
-(2) Bio of the third artist (2nd index) in the array */
+(1) Name of the first artist (0th index) in the array */
 
+console.log(artists[0].name);
 
+/* (2) Bio of the third artist (2nd index) in the array */
+
+console.log(artists[2].bio);
 
 /* Task 2: There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is currently Vincent Van Dough. Use an array method to fix this issue and console.log() to check your work. */
 
-
+artists[8].name = "Vincent Van Gogh";
+console.log(artists[8].name);
 
 /* Task 3: Create a function called `getArtistByIndex` that takes two arguments:
  *     (1) artists array
@@ -223,20 +227,39 @@ const artists = [
  * it will return `The artist at index 0 is Amedeo Modigliani`.
 */
 function getArtistByIndex(array, index) {
-    /* code here */
+    if (array[index].id === index){
+      }
+  return `The artist at index ${array[index].id} is ${array[index].name}.`
   }
   
+  console.log(getArtistByIndex(artists,0));
+
   /**
 
 
 /* Task 4: Create a function called get20s() that takes data as an argument and returns an array with names of artists who lived in the 20th century (1900-2000) */
 
-function get20s(/* Code here */){
+let twentiesArtists = [];
 
-  /* Code here */
-
+function get20s(array, century){
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].years.split(" ") === century) {
+      twentiesArtists.push(array[i].name);
+    }
+  
+  return twentiesArtists;
 }
+}
+console.log(get20s(artists,'19'));
+console.log(twentiesArtists);
 
+// function get20s(century) {
+// artists.years.split(" ");
+// if (artists.years == century) {
+//   twentiesArtists.push(artists.name);
+// }
+// }
+// console.log(get20s(19));
 
 /* Task 5: Create a function called `removeArtist` that takes two arguments:
  *     (1) artists array
@@ -248,9 +271,16 @@ function get20s(/* Code here */){
  * 
  * Note that sucessfully invoking this function multiple times without refreshing your browser will continuously remove artists from the array until there are none left. If you refresh your browser, the data will reset.  
 */
-function removeArtist(/*code here*/) {
-    /* code here */
+function removeArtist(array, index) {
+  for (let i = 0; i <array.length; i++) {
+  if (array[i].id === index) {
+    array.splice([i], 1);
   }
+
+  console.log(array.length);
+  }
+}
+  removeArtist(artists,0);
   
   /**
 
@@ -269,11 +299,14 @@ bio: Add 1-2 sentences (or use lorem ipsum)
 
 At the end, this function should console.log() the new array with information added"*/
 
-function addArtist(/* Code here */){
+function addArtist(array, id, name, years, genre, nationality, bio){
 
-    /* Code here */
+array.push({id, name, years, genre, nationality, bio});
+console.log(array);
 
-  }
+}
+
+addArtist(artists, '21', 'Tim McDonald', '1985-2020', 'Web Design', 'American', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.');
 
 /* Task 7: Create a function called lotsOfArt() that takes one argument: 
 
@@ -283,11 +316,20 @@ and returns an array with names of artists who painted more than 100 paintings.
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ..."Albrecht Dürer"]*/
 
-function lotsOfArt(/* Code here */){
+let productiveArtists = [];
+function lotsOfArt(array) {
+    for (let i =0; i<array.length; i++) {
+      if (array[i].paintings > 100 ) {
+        productiveArtists.push(array[i].name);
+      }
+    }
+    return productiveArtists;
+  }
+  
+  console.log(lotsOfArt(artists));
+  console.log(productiveArtists);
+  
 
-  /* Code here */
-
-}
 
 
 
